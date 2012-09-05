@@ -1,6 +1,6 @@
 # Filch Laravel Bundle
 
-Extend the file cache functionality of Laravel to support (insert right word here).
+Extend the file cache functionality of Laravel to support directories.
 
 ## Installation
 
@@ -24,10 +24,18 @@ Extend the file cache functionality of Laravel to support (insert right word her
 
 Creates a directory `latest` and a file `posts`
 
+	Cache::put('latest.funny.posts', $data, 435454);
+
+Creates a directory `latest`, subdirectory `funny` and a file `posts`
+
+	$posts = Cache::sear('blog.posts', $data);
+
+Gets `storage/cache/blog/posts` and puts `$data` if it doesn't find it
+
 	Cache::purge('latest');
 
-Empties the `latest` directory
+Empties the `latest` directory recursively
 
 ## Credits
 
-To each and every one of you. Mwah!
+To FuelPHP and Laravel people.
